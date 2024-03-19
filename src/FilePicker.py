@@ -21,7 +21,7 @@ class FilePicker(Gtk.Box):
     box_horizontal1 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 
     self.text_entry1 = Gtk.Entry()
-    self.text_entry1.set_placeholder_text("Select a folder")
+    #self.text_entry1.set_placeholder_text("Select a folder")
     self.text_entry1.set_hexpand(True)
     box_horizontal1.append(self.text_entry1)
 
