@@ -4,17 +4,17 @@ from gi.repository import Gtk, Gio
 
 from FilePicker import FilePicker
 
-class PublishWindow(Gtk.ApplicationWindow):
+class MirrorWindow(Gtk.ApplicationWindow):
     def __init__(self, application):
-        super().__init__(application=application, title="zclone: Publish Image")
+        super().__init__(application=application, title="zclone: Create Image")
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         box.set_margin_bottom(5)
 
-        fp1 = FilePicker("Select image souce:", Gtk.FileChooserAction.OPEN)
+        fp1 = FilePicker("Select the block device or partition:", Gtk.FileChooserAction.OPEN)
         box.append(fp1)
 
-        fp2 = FilePicker("Select the block device or partition:", Gtk.FileChooserAction.OPEN)
+        fp2 = FilePicker("Select image destination:", Gtk.FileChooserAction.SAVE)
         box.append(fp2)
 
         box_horizontal1 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
@@ -27,7 +27,7 @@ class PublishWindow(Gtk.ApplicationWindow):
         label1.set_hexpand(True)
         box_horizontal1.append(label1)
 
-        button1 = Gtk.Button(label="Publish Image")
+        button1 = Gtk.Button(label="Create Image")
         button1.set_margin_start(5)
         box_horizontal1.append(button1)
         box.append(box_horizontal1)

@@ -4,6 +4,7 @@ from gi.repository import Gtk, Gio
 
 from ServerWindow import ServerWindow
 from PublishWindow import PublishWindow
+from MirrorWindow import MirrorWindow
 
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, application):
@@ -16,6 +17,7 @@ class MainWindow(Gtk.ApplicationWindow):
             "drive-harddisk",
             "Creates Block Device/Partition Image",
             "Mirror an block device or an partition into an image file.")
+        button1.connect("clicked", self.open_mirror_window)
         box.append(button1)
         
         button2 = self.create_button_content(
@@ -33,6 +35,11 @@ class MainWindow(Gtk.ApplicationWindow):
         box.append(button3)
 
         self.set_child(box)
+
+    def open_mirror_window(self, button):
+        mirror_window = MirrorWindow(self.get_application())
+        mirror_window.show()
+        self.close()
 
     def open_publish_window(self, button):
         publish_window = PublishWindow(self.get_application())
